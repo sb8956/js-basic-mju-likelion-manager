@@ -1,6 +1,12 @@
-ul{
+.wrapList{
     display: flex;
+    padding-top: 1rem;
 }
+
 li{
-    text-decoration: none;
+    list-style: none;
+}
+
+.removeBtn{
+    margin-left: 1rem;
 }
