@@ -8,6 +8,7 @@
 
 ## Folder structure
 
+```
 ├── js
 │   └── todo.js
 │  
@@ -16,6 +17,7 @@
 ├── index.html
 │   
 └── README.md
+```
 
 ## 중요하게 생각한 요소
 
