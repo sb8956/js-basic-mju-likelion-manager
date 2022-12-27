@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./index.css"></head>
 <body>
     <h1 id="title">Todo List</h1>
-    <input id="todoInput" type="text" placeholder="Todo 입력하기" name="todo" value="">
+    <input id="todoInput" type="text" placeholder="Todo 입력하기" name="todo" value="" onkeyup="enterkey()">
     <button id="todoSubmit" onclick="addTodo()" value="+">+</button>
     <div id="todoList"></div>
 </body>

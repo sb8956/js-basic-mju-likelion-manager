@@ -14,6 +14,12 @@ function init() {
   }
 }
 
+function enterkey() {
+  if (window.event.keyCode == 13) {
+    addTodo();
+  }
+}
+
 function displayTodo(todo) {
   var wrapList = document.createElement('div');
   var list = document.createElement('li');
@@ -53,13 +59,12 @@ function addTodo() {
 
     todoLists.push(todoObj);
     localStorage.setItem("todo", JSON.stringify(todoLists));
-    inputValue.value = "";
+    inputValue.value = null;
   }
 }
 
 function deleteTodo(event) {
   const btn = event.target;
-  console.log(btn)
   const wrapList = btn.parentNode;
   const todolist = document.getElementById('todoList');
 
