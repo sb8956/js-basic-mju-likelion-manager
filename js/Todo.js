@@ -59,6 +59,7 @@ function addTodo() {
 
 function deleteTodo(event) {
   const btn = event.target;
+  console.log(btn)
   const wrapList = btn.parentNode;
   const todolist = document.getElementById('todoList');
 
@@ -66,6 +67,7 @@ function deleteTodo(event) {
   const removeTodo = todoLists.filter(function (todo) {
     return todo.id !== parseInt(btn.id);
   });
+  todoLists = removeTodo;
 
   localStorage.setItem("todo", JSON.stringify(removeTodo));
 }
