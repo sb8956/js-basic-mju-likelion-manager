@@ -6,8 +6,6 @@ const localKey = "todo"
 
 let todoLists = [];
 
-init();
-
 todoSubmit.addEventListener('click', addTodo);
 todoInput.addEventListener('keyup', enterkey);
 
@@ -53,6 +51,9 @@ function displayTodo(todo) {
 function addTodo() {
   let inputValue = todoInput;
   const newId = 0;
+
+  console.log(inputValue.value)
+
 
   if (inputValue.value == "") {
     alert('todo를 추가해주세요.');
