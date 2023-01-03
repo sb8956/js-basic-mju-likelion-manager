@@ -10,7 +10,16 @@
 
 ```
 ├── js
-│   └── todo.js
+│   ├── Todo  
+│   │   ├── addTodo.js
+│   │   │
+│   │   ├── displayTodo.js
+│   │   │
+│   │   └── deleteTodo.js 
+│   │   
+│   ├── data.js
+│   │   
+│   └── main.js
 │  
 ├── index.css
 │   
