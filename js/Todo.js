@@ -1,10 +1,16 @@
 const todoList = document.getElementById('todoList');
+const todoInput = document.getElementById('todoInput');
+const todolistDiv = document.getElementById('todoList');
+const todoSubmit = document.getElementById('todoSubmit');
+const localKey = "todo"
+
 let todoLists = [];
 
-init();
+todoSubmit.addEventListener('click', addTodo);
+todoInput.addEventListener('keyup', enterkey);
 
 function init() {
-  const loadTodo = localStorage.getItem("todo");
+  const loadTodo = localStorage.getItem(localKey);
   if (loadTodo !== null) {
     const loadTodos = JSON.parse(loadTodo);
     loadTodos.forEach(function (data) {
@@ -21,9 +27,9 @@ function enterkey() {
 }
 
 function displayTodo(todo) {
-  var wrapList = document.createElement('div');
-  var list = document.createElement('li');
-  var removeBtn = document.createElement('button');
+  let wrapList = document.createElement('div');
+  let list = document.createElement('li');
+  let removeBtn = document.createElement('button');
 
   wrapList.classList.add('wrapList');
   todoList.appendChild(wrapList);
@@ -43,22 +49,25 @@ function displayTodo(todo) {
 }
 
 function addTodo() {
-  var inputValue = document.getElementById('todoInput');
-  const newId = todoLists.length + 1;
+  let inputValue = todoInput;
+  const newId = 0;
 
-  if (inputValue.value == "")
+  console.log(inputValue.value)
+
+
+  if (inputValue.value == "") {
     alert('todo를 추가해주세요.');
-
+  }
   else {
     const todoObj = {
       todo: inputValue.value,
-      id: newId,
+      id: newId + 1,
     };
 
     displayTodo(todoObj);
 
     todoLists.push(todoObj);
-    localStorage.setItem("todo", JSON.stringify(todoLists));
+    localStorage.setItem(localKey, JSON.stringify(todoLists));
     inputValue.value = null;
   }
 }
@@ -66,7 +75,7 @@ function addTodo() {
 function deleteTodo(event) {
   const btn = event.target;
   const wrapList = btn.parentNode;
-  const todolist = document.getElementById('todoList');
+  const todolist = todolistDiv;
 
   todolist.removeChild(wrapList);
   const removeTodo = todoLists.filter(function (todo) {
@@ -74,5 +83,5 @@ function deleteTodo(event) {
   });
   todoLists = removeTodo;
 
-  localStorage.setItem("todo", JSON.stringify(removeTodo));
+  localStorage.setItem(localKey, JSON.stringify(removeTodo));
 }
